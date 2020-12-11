@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"github.com/ulule/deepcopier"
 
 	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/svc"
 	"github.com/uncleyeung/yeung-user-center/rpc/user/user"
@@ -24,7 +25,26 @@ func NewUserSelectByIdLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Us
 }
 
 func (l *UserSelectByIdLogic) UserSelectById(in *user.GetByIdReq) (*user.UserGetByIdResp, error) {
-	// todo: add your logic here and delete this line
-
-	return &user.UserGetByIdResp{}, nil
+	dbs := l.svcCtx.UserDb
+	one, err := dbs.FindOne(in.Id)
+	if err != nil {
+		l.Error(err)
+		return nil, err
+	}
+	var result user.UserGetByIdResp
+	_ = deepcopier.Copy(one).To(&result)
+	result.Status = CheckState(one.Status)
+	return &result, nil
+}
+func CheckState(status int32) user.UserGetByIdResp_Status {
+	if status == 0 {
+		return user.UserGetByIdResp_INIT
+	}
+	if status == 1 {
+		return user.UserGetByIdResp_ACTIVATION
+	}
+	if status == 2 {
+		return user.UserGetByIdResp_LOGOUT
+	}
+	return -1
 }

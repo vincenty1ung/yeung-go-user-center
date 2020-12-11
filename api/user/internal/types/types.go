@@ -49,15 +49,15 @@ type UserAccountUpdateReq struct {
 }
 
 type UserAddRequest struct {
-	Id         int64      `json:"id"`         //id
-	Name       string     `json:"name"`       //用户姓名
-	Age        int        `json:"age"`        //年龄
-	Account    Account    `json:"account"`    //账户
-	Address    []Address  `json:"address"`    //地址
-	Status     UserStatus `json:"status"`     //年龄
-	Phone      string     `json:"phone"`      //手机号
-	CreateTime int64      `json:"createTime"` //创建时间
-	UpdateTime int64      `json:"updateTime"` //更新时间
+	Id         int64      `json:"id,optional"`      //id
+	Name       string     `json:"name"`             //用户姓名
+	Age        int32      `json:"age"`              //年龄
+	Account    Account    `json:"account,optional"` //账户
+	Address    []Address  `json:"address,optional"` //地址
+	Status     UserStatus `json:"status"`           //年龄
+	Phone      string     `json:"phone"`            //手机号
+	CreateTime int64      `json:"createTime"`       //创建时间
+	UpdateTime int64      `json:"updateTime"`       //更新时间
 }
 
 type UserAddressResp struct {
@@ -79,7 +79,7 @@ type UserAddressUpdateReq struct {
 type UserGetByIdResp struct {
 	Id         int64      `json:"id"`         //id
 	Name       string     `json:"name"`       //用户姓名
-	Age        int        `json:"age"`        //年龄
+	Age        int32      `json:"age"`        //年龄
 	Account    Account    `json:"account"`    //账户
 	Address    []Address  `json:"address"`    //地址
 	Status     UserStatus `json:"status"`     //年龄
@@ -88,8 +88,13 @@ type UserGetByIdResp struct {
 	UpdateTime int64      `json:"updateTime"` //更新时间
 }
 
-type UserStatus struct {
-}
+type UserStatus int32
+
+const (
+	UserAddReq_INIT       UserStatus = 0 //初始化
+	UserAddReq_ACTIVATION UserStatus = 1 //激活
+	UserAddReq_LOGOUT     UserStatus = 2 //注销
+)
 
 type UserUpdateRequest struct {
 	Id         int64      `path:"id"`                  //id

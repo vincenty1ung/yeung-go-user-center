@@ -16,6 +16,7 @@ var (
 	userFieldNames          = builderx.FieldNames(&User{})
 	userRows                = strings.Join(userFieldNames, ",")
 	userRowsExpectAutoSet   = strings.Join(stringx.Remove(userFieldNames, "id", "create_time", "update_time"), ",")
+	userRowsIdAutoSet       = strings.Join(stringx.Remove(userFieldNames, "id"), ",")
 	userRowsWithPlaceHolder = strings.Join(stringx.Remove(userFieldNames, "id", "create_time", "update_time"), "=?,") + "=?"
 
 	cacheUserIdPrefix = "cache#User#id#"
@@ -36,8 +37,8 @@ type (
 
 	User struct {
 		Id         int64  `db:"id"`          // 主键id
-		Age        int64  `db:"age"`         // 年龄
-		Status     int64  `db:"status"`      // 0:初始化1:激活2:注销
+		Age        int32  `db:"age"`         // 年龄
+		Status     int32  `db:"status"`      // 0:初始化1:激活2:注销
 		Phone      string `db:"phone"`       // 手机号
 		CreateTime int64  `db:"create_time"` // 创建时间
 		UpdateTime int64  `db:"update_time"` // 更新时间
@@ -52,8 +53,8 @@ func NewUserModel(conn sqlx.SqlConn, c cache.CacheConf) UserModel {
 }
 
 func (m *defaultUserModel) Insert(data User) (sql.Result, error) {
-	query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?)", m.table, userRowsExpectAutoSet)
-	ret, err := m.ExecNoCache(query, data.Age, data.Status, data.Phone)
+	query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?, ?)", m.table, userRowsIdAutoSet)
+	ret, err := m.ExecNoCache(query, data.Age, data.Status, data.Phone, data.CreateTime, data.UpdateTime)
 
 	return ret, err
 }

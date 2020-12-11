@@ -2,6 +2,8 @@ package logic
 
 import (
 	"context"
+	"github.com/ulule/deepcopier"
+	"github.com/uncleyeung/yeung-user-center/rpc/user/user"
 
 	"github.com/uncleyeung/yeung-user-center/api/user/internal/svc"
 	"github.com/uncleyeung/yeung-user-center/api/user/internal/types"
@@ -24,7 +26,17 @@ func NewCreateUserLogic(ctx context.Context, svcCtx *svc.ServiceContext) CreateU
 }
 
 func (l *CreateUserLogic) CreateUser(req types.UserAddRequest) (*types.UserGetByIdResp, error) {
-	// todo: add your logic here and delete this line
-
-	return &types.UserGetByIdResp{}, nil
+	userService := l.svcCtx.UserService
+	var user user.UserAddReq
+	var resp types.UserGetByIdResp
+	_ = deepcopier.Copy(req).To(&user)
+	l.Infof("数据%+v", user)
+	add, err := userService.UserAdd(l.ctx, &user)
+	if err != nil {
+		return nil, err
+	}
+	if add.Ok {
+		_ = deepcopier.Copy(req).To(&resp)
+	}
+	return &resp, nil
 }

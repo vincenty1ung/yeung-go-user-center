@@ -1,6 +1,6 @@
 Name: user-api
 Host: 0.0.0.0
-Port: 8080
+Port: 8081
 UserServiceRpcClientConf:
   Etcd:
     Hosts:
