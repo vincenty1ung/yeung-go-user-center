@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+package user;
+
+message userAddReq {
+  string name = 1;//名字
+  int32 age = 2;//年龄
+  account account = 7;//账户
+  repeated address address = 8;//账户
+  enum Status {
+    INIT = 0;       //初始化
+    ACTIVATION = 1; //激活
+    LOGOUT = 2;     //注销
+  }
+  Status status = 3;
+  string phone = 4;//手机号
+  int64 createTime = 5;//创建时间
+  int64 updateTime = 6;//更新时间
+}
+message account {
+  string balance = 1;//余额
+  string loan = 2;//借款
+}
+message address {
+  string address = 1;//地址
+  enum Status {
+    DEFAULT = 0;       //默认
+    NON_DEFAULT = 1; //非默认
+  }
+  Status status = 2;
+}
+message addressListResp {
+  repeated addressListByUserIdResp addresList = 1;//地址集合
+}
+message addressListByUserIdResp {
+  int64 id = 3;//id
+  int64 userId = 4;//userId
+  string address = 1;//地址
+  enum Status {
+    DEFAULT = 0;       //默认
+    NON_DEFAULT = 1; //非默认
+  }
+  Status status = 2;
+}
+
+message getByIdReq {
+  int64 id = 1;//id
+}
+
+message userUpdateReq {
+  string name = 1;//名字
+  int32 age = 2;//年龄
+  account account = 7;//账户
+  repeated address address = 8;//账户
+  enum Status {
+    INIT = 0;       //初始化
+    ACTIVATION = 1; //激活
+    LOGOUT = 2;     //注销
+  }
+  Status status = 3;
+  string phone = 4;//手机号
+  int64 createTime = 5;//创建时间
+  int64 updateTime = 6;//更新时间
+}
+message userDeleteResp {
+  bool ok = 1;
+}
+message userUpdateResp {
+  bool ok = 1;
+}
+message userAddResp {
+  bool ok = 1;
+}
+message userGetByIdResp {
+  string name = 1;//名字
+  int32 age = 2;//年龄
+  account account = 7;//账户
+  repeated address address = 8;//账户
+  enum Status {
+    INIT = 0;       //初始化
+    ACTIVATION = 1; //激活
+    LOGOUT = 2;     //注销
+  }
+  Status status = 3;
+  string phone = 4;//手机号
+  int64 createTime = 5;//创建时间
+  int64 updateTime = 6;//更新时间
+}
+
+
+message accountUpdateReq {
+  int64 userId = 3;//userId
+  string balance = 1;//余额
+  string loan = 2;//借款
+}
+message accountResp {
+  int64 userId = 3;//userId
+  string balance = 1;//余额
+  string loan = 2;//借款
+}
+message accountUpdateResp {
+  bool ok = 1;
+}
+message addressUpdateReq {
+  int64 userId = 3;//userId
+  int64 id = 4;//id
+  string address = 1;//地址
+  enum Status {
+    DEFAULT = 0;       //默认
+    NON_DEFAULT = 1; //非默认
+  }
+  Status status = 2;
+}
+message addressResp {
+  bool ok = 1;
+}
+
+service userService {
+  rpc userAdd(userAddReq) returns(userAddResp);//用户新增
+  rpc userSelectById(getByIdReq) returns(userGetByIdResp);//用户获取根据id
+  rpc userUpdate(userUpdateReq) returns(userUpdateResp);//用户更新
+  rpc userDelete(getByIdReq) returns(userDeleteResp);//用户删除
+
+  rpc userAccountSelectById(getByIdReq) returns(accountResp);//用户账户根根据id
+  rpc userAccountSelectByUserId(getByIdReq) returns(accountResp);//用户账户获取根据用户id
+  rpc userAccountUpdate(accountUpdateReq) returns(accountUpdateResp);//用户账户修改
+
+  rpc userAddressUpdate(addressUpdateReq) returns(addressResp);//用户地址修改
+  rpc userAddressSelectByUserId(getByIdReq) returns(addressListResp);//用户地址修改
+  rpc userAddressAdd(addressUpdateReq) returns(addressResp);//用户地址新增
+}
