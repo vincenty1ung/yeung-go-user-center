@@ -1,0 +1,4 @@
+{"@timestamp":"2020-12-12T01:32:08.259+08","level":"info","duration":"203.0ms","content":"sql exec: insert into user (age,status,phone,create_time,update_time) values (15, 0, '17855895666', 1607707928, 1607707928)"}
+{"@timestamp":"2020-12-12T01:32:08.260+08","level":"info","content":"数据结果id:20","trace":"90ef596ac356b2b2","span":"0.1"}
+{"@timestamp":"2020-12-12T01:32:08.260+08","level":"info","duration":"224.0ms","content":"127.0.0.1:54394 - /user.userService/UserAdd - {\"name\":\"小明\",\"age\":15,\"phone\":\"17855895666\",\"createTime\":1589494,\"updateTime\":46548484}","trace":"90ef596ac356b2b2","span":"0.1"}
+{"@timestamp":"2020-12-12T01:32:53.224+08","level":"info","duration":"309.0ms","content":"127.0.0.1:54394 - /user.userService/UserSelectById - {\"id\":12}","trace":"8e8744a625855333","span":"0.1"}

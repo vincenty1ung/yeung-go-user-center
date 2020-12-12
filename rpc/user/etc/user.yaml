@@ -1,4 +1,5 @@
 Name: user.rpc
+Mode: pro
 ListenOn: 127.0.0.1:8080
 Etcd:
   Hosts:
@@ -8,3 +9,10 @@ DataSource: root:admin@tcp(localhost:3306)/test
 Table: book
 Cache:
   - Host: localhost:6379
+Log:
+  ServiceName: user.rpc
+  Mode: file
+  Path: rpc/user/log
+  Level: info
+  Compress: true
+  KeepDays: 3

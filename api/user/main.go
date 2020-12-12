@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-
 	"github.com/uncleyeung/yeung-user-center/api/user/internal/config"
 	"github.com/uncleyeung/yeung-user-center/api/user/internal/handler"
 	"github.com/uncleyeung/yeung-user-center/api/user/internal/svc"

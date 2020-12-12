@@ -1,4 +1,5 @@
 Name: user-api
+Mode: pro
 Host: 0.0.0.0
 Port: 8081
 UserServiceRpcClientConf:
@@ -6,3 +7,10 @@ UserServiceRpcClientConf:
     Hosts:
       - 127.0.0.1:2379
     Key: user.rpc
+Log:
+  ServiceName: user-api
+  Mode: file
+  Path: api/user/log
+  Level: info
+  Compress: true
+  KeepDays: 3

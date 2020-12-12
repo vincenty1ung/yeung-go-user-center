@@ -1,0 +1,1 @@
+{"@timestamp":"2020-12-12T01:32:53.223+08","level":"slow","duration":"306.0ms","content":"[REDIS] slowcall on executing: get cache#User#id#12"}
