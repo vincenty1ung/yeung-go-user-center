@@ -9,8 +9,14 @@ UserServiceRpcClientConf:
     Key: user.rpc
 Log:
   ServiceName: user-api
-  Mode: file
+  Mode: console
   Path: api/user/log
   Level: info
   Compress: true
   KeepDays: 3
+Redis:
+  Host: localhost:6379
+  Type: node
+  Pass:
+BloomRulesConf:
+  Rules: -1,dsad,0

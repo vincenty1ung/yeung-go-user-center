@@ -1,6 +1,6 @@
 Name: user.rpc
 Mode: pro
-ListenOn: 127.0.0.1:8080
+ListenOn: 127.0.0.1:20080
 Etcd:
   Hosts:
     - 127.0.0.1:2379
@@ -11,7 +11,7 @@ Cache:
   - Host: localhost:6379
 Log:
   ServiceName: user.rpc
-  Mode: file
+  Mode: console
   Path: rpc/user/log
   Level: info
   Compress: true

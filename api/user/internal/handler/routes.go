@@ -11,62 +11,71 @@ import (
 
 func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 	engine.AddRoutes(
-		[]rest.Route{
-			{
-				Method:  http.MethodGet,
-				Path:    "/user/id/:id",
-				Handler: GetUserHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/user",
-				Handler: CreateUserHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPut,
-				Path:    "/user/:id",
-				Handler: UpateUserHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodDelete,
-				Path:    "/user/:id",
-				Handler: DeleteUserHandler(serverCtx),
-			},
-		},
+		rest.WithMiddlewares(
+			[]rest.Middleware{serverCtx.BloomCheck, serverCtx.LoginCheck},
+			[]rest.Route{
+				{
+					Method:  http.MethodGet,
+					Path:    "/user/id/:id",
+					Handler: GetUserHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/user",
+					Handler: CreateUserHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPut,
+					Path:    "/user/:id",
+					Handler: UpateUserHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodDelete,
+					Path:    "/user/:id",
+					Handler: DeleteUserHandler(serverCtx),
+				},
+			}...,
+		),
 	)
 
 	engine.AddRoutes(
-		[]rest.Route{
-			{
-				Method:  http.MethodGet,
-				Path:    "/user/account/id/:id",
-				Handler: GetUserAccountByIdHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodGet,
-				Path:    "/user/account/user_id/:userId",
-				Handler: GetUserAccountByUserIdHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPut,
-				Path:    "/user/account/:id",
-				Handler: UpdateUserAccountHandler(serverCtx),
-			},
-		},
+		rest.WithMiddlewares(
+			[]rest.Middleware{serverCtx.BloomCheck, serverCtx.LoginCheck},
+			[]rest.Route{
+				{
+					Method:  http.MethodGet,
+					Path:    "/user/account/id/:id",
+					Handler: GetUserAccountByIdHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodGet,
+					Path:    "/user/account/user_id/:userId",
+					Handler: GetUserAccountByUserIdHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPut,
+					Path:    "/user/account/:id",
+					Handler: UpdateUserAccountHandler(serverCtx),
+				},
+			}...,
+		),
 	)
 
 	engine.AddRoutes(
-		[]rest.Route{
-			{
-				Method:  http.MethodGet,
-				Path:    "/user/addresss/user_id/:userId",
-				Handler: ListUserAddressByUserIdHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPut,
-				Path:    "/user/address/:id",
-				Handler: UpdateUserAddressHandler(serverCtx),
-			},
-		},
+		rest.WithMiddlewares(
+			[]rest.Middleware{serverCtx.UserCheck},
+			[]rest.Route{
+				{
+					Method:  http.MethodGet,
+					Path:    "/user/addresss/user_id/:userId",
+					Handler: ListUserAddressByUserIdHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPut,
+					Path:    "/user/address/:id",
+					Handler: UpdateUserAddressHandler(serverCtx),
+				},
+			}...,
+		),
 	)
 }

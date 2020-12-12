@@ -1,8 +1,8 @@
 info(
-    title: // 用户中心
-    desc: // demo
-    author: "uncle"
-    email: "uncle.yeung.bo@gmail.com"
+	title: // 用户中心
+	desc: // demo
+	author: "uncle"
+	email: "uncle.yeung.bo@gmail.com"
 )
 
 type userAddressStatus int64
@@ -10,134 +10,141 @@ type userStatus int64
 
 
 type (
-    account {
-        id int64 `json:"id"`              //id
-        userId int64 `json:"userId"`      //用户id
-        balance string `json:"balance"`   //地址
-        loan string `json:"loan"`         //贷款
-    }
-    address {
-        id int64 `json:"id"`                         //id
-        userId int64 `json:"userId"`                 //用户id
-        address string `json:"address"`              //地址
-        status userAddressStatus `json:"status"`     //状态
-    }
-    userAddRequest {
-        id int64 `json:"id"`                  //id
-        name string `json:"name"`             //用户姓名
-        age int `json:"age"`                  //年龄
-        account account `json:"account"`      //账户
-        address []address `json:"address"`    //地址
-        status userStatus `json:"status"`     //年龄
-        phone string `json:"phone"`           //手机号
-        createTime int64 `json:"createTime"`  //创建时间
-        updateTime int64 `json:"updateTime"`  //更新时间
-    }
-    userUpdateRequest {
-        id int64 `path:"id"`                           //id
-        name string `json:"name,optional"`             //用户姓名
-        age int `json:"age,optional"`                  //年龄
-        account account `json:"account,optional"`      //账户
-        address []address `json:"address,optional"`    //地址
-        status userStatus `json:"status,optional"`     //年龄
-        phone string `json:"phone,optional"`           //手机号
-        updateTime int64 `json:"updateTime,optional"`  //更新时间
-    }
-    getByIdReq {
-        id int64 `path:"id"`
-    }
-    getByUserIdReq {
-        userId int64 `path:"userId"`
-    }
-    userGetByIdResp {
-        id int64 `json:"id"`                  //id
-        name string `json:"name"`             //用户姓名
-        age int `json:"age"`                  //年龄
-        account account `json:"account"`      //账户
-        address []address `json:"address"`    //地址
-        status userStatus `json:"status"`     //年龄
-        phone string `json:"phone"`           //手机号
-        createTime int64 `json:"createTime"`  //创建时间
-        updateTime int64 `json:"updateTime"`  //更新时间
-    }
-    userAccountUpdateReq {
-        id int64 `path:"id"`                  //id
-        balance string `json:"balance"`       //地址
-        loan string `json:"loan"`             //贷款
-    }
-    userAddressUpdateReq {
-        id int64 `path:"id"`                         //id
-        address string `json:"address"`              //地址
-        status userAddressStatus `json:"status"`     //状态
-    }
-    userAddressResp {
-        id int64 `path:"id"`                         //id
-        userId int64 `json:"userId"`                 //userId
-        address string `json:"address"`              //地址
-        status userAddressStatus `json:"status"`     //状态
-    }
-    addressListResp {
-        addresList []userAddressResp `json:"addresList"`//地址集合
-    }
-    userAccountResp {
-        id int64 `path:"id",json:"id"`                         //id
-        userId int64 `json:"userId"`                           //userId
-        balance string `json:"balance"`                        //地址
-        loan string `json:"loan"`                              //贷款
-    }
-    accountListResp {
-        accountList []userAccountResp `json:"accountList"`//地址集合
-    }
-    dmlResponse {
-        result bool `json:"result"`
-    }
+	account {
+		id int64 `json:"id"`              //id
+		userId int64 `json:"userId"`      //用户id
+		balance string `json:"balance"`   //地址
+		loan string `json:"loan"`         //贷款
+	}
+	address {
+		id int64 `json:"id"`                         //id
+		userId int64 `json:"userId"`                 //用户id
+		address string `json:"address"`              //地址
+		status userAddressStatus `json:"status"`     //状态
+	}
+	userAddRequest {
+		id int64 `json:"id"`                  //id
+		name string `json:"name"`             //用户姓名
+		age int `json:"age"`                  //年龄
+		account account `json:"account"`      //账户
+		address []address `json:"address"`    //地址
+		status userStatus `json:"status"`     //年龄
+		phone string `json:"phone"`           //手机号
+		createTime int64 `json:"createTime"`  //创建时间
+		updateTime int64 `json:"updateTime"`  //更新时间
+	}
+	userUpdateRequest {
+		id int64 `path:"id"`                           //id
+		name string `json:"name,optional"`             //用户姓名
+		age int `json:"age,optional"`                  //年龄
+		account account `json:"account,optional"`      //账户
+		address []address `json:"address,optional"`    //地址
+		status userStatus `json:"status,optional"`     //年龄
+		phone string `json:"phone,optional"`           //手机号
+		updateTime int64 `json:"updateTime,optional"`  //更新时间
+	}
+	getByIdReq {
+		id int64 `path:"id"`
+	}
+	getByUserIdReq {
+		userId int64 `path:"userId"`
+	}
+	userGetByIdResp {
+		id int64 `json:"id"`                  //id
+		name string `json:"name"`             //用户姓名
+		age int `json:"age"`                  //年龄
+		account account `json:"account"`      //账户
+		address []address `json:"address"`    //地址
+		status userStatus `json:"status"`     //年龄
+		phone string `json:"phone"`           //手机号
+		createTime int64 `json:"createTime"`  //创建时间
+		updateTime int64 `json:"updateTime"`  //更新时间
+	}
+	userAccountUpdateReq {
+		id int64 `path:"id"`                  //id
+		balance string `json:"balance"`       //地址
+		loan string `json:"loan"`             //贷款
+	}
+	userAddressUpdateReq {
+		id int64 `path:"id"`                         //id
+		address string `json:"address"`              //地址
+		status userAddressStatus `json:"status"`     //状态
+	}
+	userAddressResp {
+		id int64 `path:"id"`                         //id
+		userId int64 `json:"userId"`                 //userId
+		address string `json:"address"`              //地址
+		status userAddressStatus `json:"status"`     //状态
+	}
+	addressListResp {
+		addresList []userAddressResp `json:"addresList"`//地址集合
+	}
+	userAccountResp {
+		id int64 `path:"id",json:"id"`                         //id
+		userId int64 `json:"userId"`                           //userId
+		balance string `json:"balance"`                        //地址
+		loan string `json:"loan"`                              //贷款
+	}
+	accountListResp {
+		accountList []userAccountResp `json:"accountList"`//地址集合
+	}
+	dmlResponse {
+		result bool `json:"result"`
+	}
 )
-
+@server(
+	middleware: BloomCheck
+)
 service user-api {
-    @doc(
-        summary: "用户接口"
-    )
-    @server(
-        handler: GetUserHandler
-    )
-    get /user/id/:id (getByIdReq) returns (userGetByIdResp)
+	@doc(
+		summary: "用户接口"
+	)
+	@server(
+		handler: GetUserHandler
+	)
+	get /user/id/:id (getByIdReq) returns (userGetByIdResp)
 
-    @server(
-        handler: CreateUserHandler
-    )
-    post /user (userAddRequest) returns (userGetByIdResp)
+	@server(
+		handler: CreateUserHandler
+	)
+	post /user (userAddRequest) returns (userGetByIdResp)
 
-    @server(
-        handler: UpateUserHandler
-    )
-    put /user/:id (userUpdateRequest) returns (dmlResponse)
+	@server(
+		handler: UpateUserHandler
+	)
+	put /user/:id (userUpdateRequest) returns (dmlResponse)
 
-    @server(
-        handler: DeleteUserHandler
-    )
-    delete /user/:id (getByIdReq) returns (dmlResponse)
+	@server(
+		handler: DeleteUserHandler
+	)
+	delete /user/:id (getByIdReq) returns (dmlResponse)
 }
-
+@server(
+	middleware: LoginCheck
+)
 service user-api {
-    @doc(
-        summary: "用户账户接口"
-    )
-    @handler GetUserAccountByIdHandler
-    get /user/account/id/:id (getByIdReq) returns (userAccountResp)
+	@doc(
+		summary: "用户账户接口"
+	)
+	@handler GetUserAccountByIdHandler
+	get /user/account/id/:id (getByIdReq) returns (userAccountResp)
 
-    @handler GetUserAccountByUserIdHandler
-    get /user/account/user_id/:userId (getByUserIdReq) returns (userAccountResp)
+	@handler GetUserAccountByUserIdHandler
+	get /user/account/user_id/:userId (getByUserIdReq) returns (userAccountResp)
 
-    @handler UpdateUserAccountHandler
-    put /user/account/:id (userAccountUpdateReq)
+	@handler UpdateUserAccountHandler
+	put /user/account/:id (userAccountUpdateReq)
 }
+@server(
+	middleware: UserCheck
+)
 service user-api {
-    @doc(
-        summary: "用户地址接口"
-    )
-    @handler ListUserAddressByUserIdHandler
-    get /user/addresss/user_id/:userId (getByUserIdReq) returns (addressListResp)
+	@doc(
+		summary: "用户地址接口"
+	)
+	@handler ListUserAddressByUserIdHandler
+	get /user/addresss/user_id/:userId (getByUserIdReq) returns (addressListResp)
 
-    @handler UpdateUserAddressHandler
-    put /user/address/:id (userAddressUpdateReq)
+	@handler UpdateUserAddressHandler
+	put /user/address/:id (userAddressUpdateReq)
 }

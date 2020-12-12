@@ -2,7 +2,7 @@ package logic
 
 import (
 	"context"
-
+	"errors"
 	"github.com/uncleyeung/yeung-user-center/api/user/internal/svc"
 	"github.com/uncleyeung/yeung-user-center/api/user/internal/types"
 
@@ -25,6 +25,5 @@ func NewGetUserAccountByIdLogic(ctx context.Context, svcCtx *svc.ServiceContext)
 
 func (l *GetUserAccountByIdLogic) GetUserAccountById(req types.GetByIdReq) (*types.UserAccountResp, error) {
 	// todo: add your logic here and delete this line
-
-	return &types.UserAccountResp{}, nil
+	return nil, errors.New("测试全局异常")
 }

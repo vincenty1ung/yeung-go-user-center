@@ -9,7 +9,7 @@ type Message struct {
 }
 
 // 定义错误处理函数
-func errorHandler(err error) (int, interface{}) {
+func ErrorHandler(err error) (int, interface{}) {
 	return http.StatusConflict, Message{
 		Code: -1,
 		Desc: err.Error(),
