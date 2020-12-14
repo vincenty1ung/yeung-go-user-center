@@ -6,6 +6,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/interceptor"
 
 	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/config"
 	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/server"
@@ -30,6 +31,8 @@ func main() {
 	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
 		user.RegisterUserServiceServer(grpcServer, srv)
 	})
+	s.AddUnaryInterceptors(interceptor.RateLimitInterceptor, interceptor.TimeInterceptor,
+		interceptor.AuthorityInterceptor)
 	defer s.Stop()
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)

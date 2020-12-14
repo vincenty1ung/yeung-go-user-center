@@ -3,7 +3,7 @@ package logic
 import (
 	"context"
 	"github.com/ulule/deepcopier"
-	db2 "github.com/uncleyeung/yeung-user-center/rpc/user/db"
+	db2 "github.com/uncleyeung/yeung-user-center/rpc/user/internal/db"
 	"time"
 
 	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/svc"

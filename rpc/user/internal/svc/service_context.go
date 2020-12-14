@@ -2,8 +2,8 @@ package svc
 
 import (
 	"github.com/tal-tech/go-zero/core/stores/sqlx"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/db"
 	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/config"
+	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/db"
 )
 
 type ServiceContext struct {
