@@ -32,5 +32,7 @@
 * goctl model mysql datasource -url="user:password@tcp(127.0.0.1:3306)/test" -table="user*" -dir ./model(通配符匹配所有user
 开头的表)
 * goctl model mysql datasource -url="user:password@tcp(127.0.0.1:3306)/test" -table="user" -dir ./model(指定表名user)
+* goctl docker -go main.go(docker)
 #### 文档
 https://www.yuque.com/tal-tech/go-zero
+https://mp.weixin.qq.com/s/VLBiIbZStKhb7uth1ndgQQ

@@ -3,12 +3,12 @@ Mode: pro
 ListenOn: :20080
 Etcd:
   Hosts:
-    - 127.0.0.1:2379
+    - 192.168.206.128:2379
   Key: user.rpc
-DataSource: root:admin@tcp(localhost:3306)/test
+DataSource: root:admin@tcp(192.168.206.128:3306)/test
 Table: book
 Cache:
-  - Host: localhost:6379
+  - Host: 192.168.206.128:6379
 Log:
   ServiceName: user.rpc
   Mode: console

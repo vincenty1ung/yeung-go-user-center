@@ -5,7 +5,7 @@ Port: 8081
 UserServiceRpcClientConf:
   Etcd:
     Hosts:
-      - 127.0.0.1:2379
+      - 192.168.206.128:2379
     Key: user.rpc
 Log:
   ServiceName: user-api
@@ -15,7 +15,7 @@ Log:
   Compress: true
   KeepDays: 3
 Redis:
-  Host: localhost:6379
+  Host: 192.168.206.128:6379
   Type: node
   Pass:
 BloomRulesConf:
