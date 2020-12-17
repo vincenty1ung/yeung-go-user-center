@@ -4,8 +4,8 @@ import (
 	"context"
 	"github.com/ulule/deepcopier"
 
-	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/svc"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/user"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/internal/svc"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/user"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )
@@ -31,6 +31,8 @@ func (l *UserSelectByIdLogic) UserSelectById(in *user.GetByIdReq) (*user.UserGet
 		l.Error(err)
 		return nil, err
 	}
+	_, err = l.svcCtx.Adder.Add(l.ctx, nil)
+	l.Logger.Error(err)
 	var result user.UserGetByIdResp
 	_ = deepcopier.Copy(one).To(&result)
 	result.Status = CheckState(one.Status)

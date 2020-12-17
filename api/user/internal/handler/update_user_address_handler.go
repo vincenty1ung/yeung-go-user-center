@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/logic"
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/svc"
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/types"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/logic"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/svc"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/types"
 
 	"github.com/tal-tech/go-zero/rest/httpx"
 )

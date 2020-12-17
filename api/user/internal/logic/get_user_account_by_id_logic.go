@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 	"errors"
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/svc"
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/types"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/svc"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/types"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )

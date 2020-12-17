@@ -6,12 +6,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/interceptor"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/internal/interceptor"
 
-	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/config"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/server"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/svc"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/user"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/internal/config"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/internal/server"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/internal/svc"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/user"
 
 	"github.com/tal-tech/go-zero/core/conf"
 	"github.com/tal-tech/go-zero/zrpc"

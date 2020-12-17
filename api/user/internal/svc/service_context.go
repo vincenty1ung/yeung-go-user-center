@@ -4,10 +4,10 @@ import (
 	"github.com/tal-tech/go-zero/core/stores/redis"
 	"github.com/tal-tech/go-zero/rest"
 	"github.com/tal-tech/go-zero/zrpc"
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/bloom"
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/config"
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/middleware"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/userservice"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/bloom"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/config"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/middleware"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/userservice"
 	"strings"
 )
 

@@ -13,11 +13,11 @@ COPY rpc/user/etc /app/etc
 RUN go build -ldflags="-s -w" -o /app/main rpc/user/main.go
 
 
-FROM alpine
+FROM centos:7
 
-RUN apk update --no-cache
-RUN apk add --no-cache ca-certificates
-RUN apk add --no-cache tzdata
+#RUN apk update --no-cache
+#RUN apk add --no-cache ca-certificates
+#RUN apk add --no-cache tzdata
 ENV TZ Asia/Shanghai
 
 WORKDIR /app

@@ -6,9 +6,9 @@ package server
 import (
 	"context"
 
-	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/logic"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/internal/svc"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/user"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/internal/logic"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/internal/svc"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/user"
 )
 
 type UserServiceServer struct {

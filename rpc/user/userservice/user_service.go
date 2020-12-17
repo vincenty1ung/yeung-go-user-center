@@ -8,7 +8,7 @@ package userservice
 import (
 	"context"
 
-	"github.com/uncleyeung/yeung-user-center/rpc/user/user"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/user"
 
 	"github.com/tal-tech/go-zero/zrpc"
 )

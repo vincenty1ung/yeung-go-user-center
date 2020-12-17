@@ -4,7 +4,7 @@ import (
 	"errors"
 	"github.com/tal-tech/go-zero/core/logx"
 	"github.com/tal-tech/go-zero/rest/httpx"
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/bloom"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/bloom"
 	"net/http"
 	"strconv"
 	"strings"

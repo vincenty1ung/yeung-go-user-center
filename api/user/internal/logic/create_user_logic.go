@@ -3,10 +3,10 @@ package logic
 import (
 	"context"
 	"github.com/ulule/deepcopier"
-	"github.com/uncleyeung/yeung-user-center/rpc/user/user"
+	"github.com/uncleyeung/yeung-go-user-center/rpc/user/user"
 
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/svc"
-	"github.com/uncleyeung/yeung-user-center/api/user/internal/types"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/svc"
+	"github.com/uncleyeung/yeung-go-user-center/api/user/internal/types"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )
