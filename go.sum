@@ -244,6 +244,8 @@ github.com/ulule/deepcopier v0.0.0-20200430083143-45decc6639b6 h1:TtyC78WMafNW8Q
 github.com/ulule/deepcopier v0.0.0-20200430083143-45decc6639b6/go.mod h1:h8272+G2omSmi30fBXiZDMkmHuOgonplfKIKjQWzlfs=
 github.com/uncleyeung/yeung-go-zero-study v0.0.0-20201217111005-72e1dc87f7b3 h1:jLm5yyD+Z5l20WI7NYDLz+dPaoiE6Ds6w60YV3xX1xY=
 github.com/uncleyeung/yeung-go-zero-study v0.0.0-20201217111005-72e1dc87f7b3/go.mod h1:X3DL5lH9voRRME9+BRxYyp8yKZwHgb4OyED8H7b/vzI=
+github.com/uncleyeung/yeung-go-zero-study v1.0.0 h1:5+2KsHLcZ8fNNPK/RfS6Wv92bn3gCasgZ9q5F4SmjOs=
+github.com/uncleyeung/yeung-go-zero-study v1.0.0/go.mod h1:X3DL5lH9voRRME9+BRxYyp8yKZwHgb4OyED8H7b/vzI=
 github.com/urfave/cli v1.20.0/go.mod h1:70zkFmudgCuE/ngEzBv17Jvp/497gISqfk5gWijbERA=
 github.com/urfave/cli v1.22.5/go.mod h1:Gos4lmkARVdJ6EkW0WaNv/tZAAMe9V7XWyB60NtXRu0=
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 h1:eY9dn8+vbi4tKz5Qo6v2eYzo7kUS51QINcR5jNpbZS8=
